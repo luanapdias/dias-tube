@@ -11,8 +11,8 @@
     Logout
   </button>
 
-  <!-- Galeria de vídeos -->
-  <div class="video-gallery" *ngIf="videos.length > 0">
+  <!-- Verifica se a lista de vídeos está carregada -->
+  <div class="video-gallery" *ngIf="videos && videos.length > 0; else loading">
     <h2>Vídeos</h2>
     <div class="video-item" *ngFor="let video of videos">
       <img
@@ -24,4 +24,9 @@
       <p>{{ video.title }}</p>
     </div>
   </div>
+
+  <!-- Exibe mensagem de carregamento enquanto os vídeos não são carregados -->
+  <ng-template #loading>
+    <p>Carregando vídeos...</p>
+  </ng-template>
 </div>

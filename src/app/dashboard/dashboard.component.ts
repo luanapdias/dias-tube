@@ -9,20 +9,16 @@ interface Video {
   url: string;
 }
 
-interface ApiResponse {
-  videos: Video[];
-}
-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
   logoutUrl = window.location.origin; // Armazena o URL base
-  videos: Video[] = []; // Lista de vídeos
+  videos: Video[] = []; // Inicializa como array vazio
 
   constructor(public auth: AuthService, private http: HttpClient) {
     this.fetchVideos();
@@ -30,9 +26,9 @@ export class DashboardComponent {
 
   // Método para buscar os vídeos
   fetchVideos(): void {
-    this.http.get<ApiResponse>('http://localhost:3000/videos').subscribe({
+    this.http.get<Video[]>('http://localhost:3000/videos').subscribe({
       next: (data) => {
-        this.videos = data.videos; // Mapeia os vídeos corretamente
+        this.videos = data; // Preenche os vídeos com a resposta
       },
       error: (err) => console.error('Erro ao buscar vídeos:', err),
     });
