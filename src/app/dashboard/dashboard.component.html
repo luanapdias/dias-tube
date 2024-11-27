@@ -1,0 +1,27 @@
+<div class="dashboard">
+  <h1>Bem-vindo ao Dashboard!</h1>
+  <p>Você está autenticado com sucesso.</p>
+
+  <div *ngIf="auth.user$ | async as user">
+    <h2>Olá, {{ user.name }}!</h2>
+    <p>Email: {{ user.email }}</p>
+  </div>
+
+  <button (click)="auth.logout({ logoutParams: { returnTo: logoutUrl } })">
+    Logout
+  </button>
+
+  <!-- Galeria de vídeos -->
+  <div class="video-gallery" *ngIf="videos.length > 0">
+    <h2>Vídeos</h2>
+    <div class="video-item" *ngFor="let video of videos">
+      <img
+        [src]="video.thumbnail"
+        [alt]="video.title"
+        class="video-thumbnail"
+        (click)="openVideo(video.url)"
+      />
+      <p>{{ video.title }}</p>
+    </div>
+  </div>
+</div>

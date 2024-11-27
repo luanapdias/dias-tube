@@ -1,0 +1,48 @@
+.pagina-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.descricao {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-descricao {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  color: #C8C8C8;
+}
+
+.botao-conectar {
+  background-color: #897BA6;
+  color: white;
+  width: 150px; /* Largura do botão */
+  height: 70px; /* Altura do botão */
+  border: none;
+  border-radius: 18px; /* Borda arredondada */
+  cursor: pointer;
+  font-size: 1rem; /* Tamanho da fonte */
+  display: flex; /* Para centralizar o conteúdo */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.botao-conectar:hover {
+  background-color: #5a38a1;
+}
