@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Para ngModel
 
 interface Video {
   thumbnail: string;
@@ -12,28 +13,44 @@ interface Video {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Importando FormsModule para ngModel
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  logoutUrl = window.location.origin;
-  videos: Video[] = [];
+  logoutUrl = window.location.origin; // Armazena o URL base
+  videos: Video[] = []; // Inicializa como array vazio
+  filteredVideos: Video[] = []; // Vídeos filtrados
+  searchQuery: string = ''; // Query de pesquisa
 
   constructor(public auth: AuthService, private http: HttpClient) {
     this.fetchVideos();
   }
 
-  private fetchVideos(): void {
+  // Método para buscar os vídeos
+  fetchVideos(): void {
     this.http.get<Video[]>('http://localhost:3000/videos').subscribe({
       next: (data) => {
-        this.videos = data;
+        this.videos = data; // Preenche os vídeos com a resposta
+        this.filteredVideos = data; // Inicializa os vídeos filtrados
       },
       error: (err) => console.error('Erro ao buscar vídeos:', err),
     });
   }
 
+  // Método para abrir o link do vídeo
   openVideo(url: string): void {
-    window.open(url, '_blank');
+    window.open(url, '_blank'); // Abre o link em uma nova aba
+  }
+
+  // Método para filtrar os vídeos com base na pesquisa
+  filterVideos(): void {
+    if (this.searchQuery.trim()) {
+      this.filteredVideos = this.videos.filter(video =>
+        video.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    } else {
+      this.filteredVideos = this.videos; // Caso a busca esteja vazia, mostra todos os vídeos
+    }
   }
 }

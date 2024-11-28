@@ -2,21 +2,29 @@
   <h1>Bem-vindo ao Dashboard!</h1>
   <p>Você está autenticado com sucesso.</p>
 
-  <!-- Exibe informações do usuário -->
   <div *ngIf="auth.user$ | async as user">
-    <h2>Olá, {{ user.name || 'Usuário' }}!</h2>
-    <p>Email: {{ user.email || 'Email não disponível' }}</p>
+    <h2>Olá, {{ user.name }}!</h2>
+    <p>Email: {{ user.email }}</p>
   </div>
 
-  <!-- Botão de logout -->
   <button (click)="auth.logout({ logoutParams: { returnTo: logoutUrl } })">
-    Logout
+    Sair
   </button>
 
-  <!-- Galeria de vídeos -->
-  <div class="video-gallery" *ngIf="videos && videos.length > 0; else loading">
+  <!-- Barra de pesquisa -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Pesquisar vídeos..."
+      [(ngModel)]="searchQuery"
+      (input)="filterVideos()"
+    />
+  </div>
+
+  <!-- Verifica se a lista de vídeos está carregada -->
+  <div class="video-gallery" *ngIf="filteredVideos && filteredVideos.length > 0; else loading">
     <h2>Vídeos</h2>
-    <div class="video-item" *ngFor="let video of videos">
+    <div class="video-item" *ngFor="let video of filteredVideos">
       <img
         [src]="video.thumbnail"
         [alt]="video.title"
@@ -27,7 +35,7 @@
     </div>
   </div>
 
-  <!-- Mensagem de carregamento -->
+  <!-- Exibe mensagem de carregamento enquanto os vídeos não são carregados -->
   <ng-template #loading>
     <p>Carregando vídeos...</p>
   </ng-template>

@@ -34,3 +34,39 @@ button {
 .video-thumbnail:hover {
   transform: scale(1.05);
 }
+.dashboard {
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.video-gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.video-item {
+  text-align: center;
+  cursor: pointer;
+}
+
+.video-thumbnail {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.05);
+}
