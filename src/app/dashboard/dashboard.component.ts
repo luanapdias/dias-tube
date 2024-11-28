@@ -17,25 +17,23 @@ interface Video {
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  logoutUrl = window.location.origin; // Armazena o URL base
-  videos: Video[] = []; // Inicializa como array vazio
+  logoutUrl = window.location.origin;
+  videos: Video[] = [];
 
   constructor(public auth: AuthService, private http: HttpClient) {
     this.fetchVideos();
   }
 
-  // Método para buscar os vídeos
-  fetchVideos(): void {
+  private fetchVideos(): void {
     this.http.get<Video[]>('http://localhost:3000/videos').subscribe({
       next: (data) => {
-        this.videos = data; // Preenche os vídeos com a resposta
+        this.videos = data;
       },
       error: (err) => console.error('Erro ao buscar vídeos:', err),
     });
   }
 
-  // Método para abrir o link do vídeo
   openVideo(url: string): void {
-    window.open(url, '_blank'); // Abre o link em uma nova aba
+    window.open(url, '_blank');
   }
 }
