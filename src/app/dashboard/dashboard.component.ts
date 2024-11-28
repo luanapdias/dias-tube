@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; // Para ngModel
 
+// Adicionando a propriedade 'description' à interface
 interface Video {
   thumbnail: string;
   title: string;
   url: string;
+  description: string; // Novo campo para descrição
 }
 
 @Component({
@@ -17,14 +19,16 @@ interface Video {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   logoutUrl = window.location.origin; // Armazena o URL base
   videos: Video[] = []; // Inicializa como array vazio
   filteredVideos: Video[] = []; // Vídeos filtrados
   searchQuery: string = ''; // Query de pesquisa
 
-  constructor(public auth: AuthService, private http: HttpClient) {
-    this.fetchVideos();
+  constructor(public auth: AuthService, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchVideos(); // Carregar vídeos ao inicializar o componente
   }
 
   // Método para buscar os vídeos
