@@ -1,11 +1,4 @@
 <div class="dashboard">
-  <h1>Bem-vindo ao Dashboard!</h1>
-  <p>Você está autenticado com sucesso.</p>
-
-  <div *ngIf="auth.user$ | async as user">
-    <h2>Olá, {{ user.name }}!</h2>
-    <p>Email: {{ user.email }}</p>
-  </div>
 
   <button (click)="auth.logout({ logoutParams: { returnTo: logoutUrl } })">
     Sair
@@ -19,6 +12,11 @@
       [(ngModel)]="searchQuery"
       (input)="filterVideos()"
     />
+  </div>
+
+  <!-- Exibe a foto do usuário logado -->
+  <div *ngIf="auth.user$ | async as user">
+    <img *ngIf="user.picture" [src]="user.picture" alt="Foto de perfil" class="profile-photo" />
   </div>
 
   <!-- Verifica se a lista de vídeos está carregada -->

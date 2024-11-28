@@ -56,3 +56,10 @@ p {
   font-size: 14px;
   color: #333;
 }
+
+.profile-photo {
+  width: 50px;  /* Ajuste conforme necessário */
+  height: 50px; /* Ajuste conforme necessário */
+  border-radius: 50%; /* Para deixar a imagem redonda */
+  object-fit: cover;
+}
