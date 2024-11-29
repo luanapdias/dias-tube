@@ -12,9 +12,9 @@ export const appConfig: ApplicationConfig = {
       domain: 'dev-trvf8twqkvtfdt56.us.auth0.com',
       clientId: 'pNLQAHg8h3TAM1sDc60Db0hvc6LSgCS1',
       authorizationParams: {
-        redirect_uri: window.location.origin, // Redireciona após login
+        redirect_uri: window.location.origin,
       },
-      skipRedirectCallback: false, // Configura para redirecionar automaticamente após login
+      skipRedirectCallback: false, 
     }),
   ],
 };

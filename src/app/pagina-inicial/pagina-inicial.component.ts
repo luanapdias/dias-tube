@@ -12,7 +12,7 @@ export class PaginaInicialComponent {
 
   login() {
     this.auth.loginWithRedirect({
-      appState: { target: '/dashboard' }, // Redireciona para o dashboard após login
+      appState: { target: '/dashboard' }, 
     });
   }
 }

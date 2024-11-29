@@ -1,27 +1,26 @@
 <div class="dashboard">
+  <div class="search-container">
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Pesquisar vídeos..."
+        [(ngModel)]="searchQuery"
+        (input)="filterVideos()"
+      />
+      <img src="./icons8-pesquisar-50.png" />
+    </div>
 
-  <button (click)="auth.logout({ logoutParams: { returnTo: logoutUrl } })">
-    Sair
-  </button>
+    <!-- Botão de sair -->
+    <button (click)="auth.logout({ logoutParams: { returnTo: logoutUrl } })">
+      Sair
+    </button>
 
-  <!-- Barra de pesquisa -->
-  <div class="search-bar">
-    <input
-      type="text"
-      placeholder="Pesquisar vídeos..."
-      [(ngModel)]="searchQuery"
-      (input)="filterVideos()"
-    />
+    <div *ngIf="auth.user$ | async as user">
+      <img *ngIf="user.picture" [src]="user.picture" alt="Foto de perfil" class="profile-photo" />
+    </div>
   </div>
 
-  <!-- Exibe a foto do usuário logado -->
-  <div *ngIf="auth.user$ | async as user">
-    <img *ngIf="user.picture" [src]="user.picture" alt="Foto de perfil" class="profile-photo" />
-  </div>
-
-  <!-- Verifica se a lista de vídeos está carregada -->
   <div class="video-gallery" *ngIf="filteredVideos && filteredVideos.length > 0; else loading">
-    <h2>Vídeos</h2>
     <div class="video-item" *ngFor="let video of filteredVideos">
       <img
         [src]="video.thumbnail"
@@ -29,9 +28,8 @@
         class="video-thumbnail"
         (click)="openVideo(video.url)"
       />
-      <p>{{ video.title }}</p>
-      <!-- Adicionando a descrição -->
-      <p>{{ video.description }}</p> <!-- Descrição do vídeo -->
+      <p class="video-title">{{ video.title }}</p>
+      <p class="video-description">{{ video.description }}</p>
     </div>
   </div>
 

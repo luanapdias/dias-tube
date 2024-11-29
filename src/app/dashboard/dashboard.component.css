@@ -1,42 +1,87 @@
-.dashboard {
-  text-align: center;
-  margin-top: 50px;
+body {
+  background-color: #141313;
+  margin: 0;
+  padding: 0;
+  color: #4E4E4E;
+  font-family: Arial, sans-serif;
 }
 
-button {
+.dashboard {
+  background-color: #141313;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .search-bar {
-  margin-top: 20px;
+  position: relative;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  align-items: center;
 }
 
 .search-bar input {
-  padding: 8px;
+  padding: 8px 40px 8px 10px;
   font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 300px;
+  border-radius: 30px;
+  border: 1px solid #544F4F;
+  background-color: #141313;
+  color: #4E4E4E;
+  width: 400px;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+button {
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #141313;
+  color: #4E4E4E;
+  border: 1px solid #544F4F;
+  border-radius: 30px;
+}
+
+.profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .video-gallery {
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video-item {
   text-align: center;
   cursor: pointer;
-  max-width: 180px;
+  max-width: 300px;
 }
 
 .video-thumbnail {
@@ -51,15 +96,18 @@ button {
   transform: scale(1.05);
 }
 
-p {
+.video-title{
   margin-top: 10px;
-  font-size: 14px;
-  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFFFFF;
 }
 
-.profile-photo {
-  width: 50px;  /* Ajuste conforme necessário */
-  height: 50px; /* Ajuste conforme necessário */
-  border-radius: 50%; /* Para deixar a imagem redonda */
-  object-fit: cover;
+.video-description {
+  margin-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #727272;
 }
