@@ -1,5 +1,6 @@
 <div class="dashboard">
   <div class="search-container">
+    <img class="logo" src="./assets/minhaLogo.png" alt="Logo" />
     <div class="search-bar">
       <input
         type="text"
@@ -7,7 +8,7 @@
         [(ngModel)]="searchQuery"
         (input)="filterVideos()"
       />
-      <img src="./icons8-pesquisar-50.png" />
+      <img class="search-icon" src="./assets/icons8-pesquisar-50.png" alt="Pesquisar" />
     </div>
 
     <!-- Botão de sair -->
@@ -28,7 +29,14 @@
         class="video-thumbnail"
         (click)="openVideo(video.url)"
       />
-      <p class="video-title">{{ video.title }}</p>
+      <div class="video-info">
+        <img
+          [src]="video.channel_thumbnail"
+          alt="canal"
+          class="video-channel-thumbnail"
+        />
+        <p class="video-title">{{ video.title }}</p>
+      </div>
       <p class="video-description">{{ video.description }}</p>
     </div>
   </div>

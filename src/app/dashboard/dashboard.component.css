@@ -49,6 +49,10 @@ body {
   cursor: pointer;
 }
 
+.logo {
+  max-width: 12%;
+}
+
 button {
   padding: 8px 20px;
   font-size: 16px;
@@ -78,12 +82,6 @@ button {
   margin-right: auto;
 }
 
-.video-item {
-  text-align: center;
-  cursor: pointer;
-  max-width: 300px;
-}
-
 .video-thumbnail {
   width: 100%;
   height: auto;
@@ -96,12 +94,10 @@ button {
   transform: scale(1.05);
 }
 
-.video-title{
-  margin-top: 10px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: #FFFFFF;
+.video-item {
+  text-align: center;
+  cursor: pointer;
+  max-width: 300px;
 }
 
 .video-description {
@@ -111,3 +107,26 @@ button {
   font-size: 14px;
   color: #727272;
 }
+
+.video-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.video-channel-thumbnail {
+  width: 40px;
+  height: 40px; 
+  margin-right: 8px;
+  border-radius: 50%; 
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #FFFFFF;
+  margin: 0; 
+}
+
+

@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; // Para ngModel
 
-// Adicionando a propriedade 'description' à interface
 interface Video {
   thumbnail: string;
+  channel_thumbnail: string;
   title: string;
   url: string;
-  description: string; // Novo campo para descrição
+  description: string;
 }
 
 @Component({
