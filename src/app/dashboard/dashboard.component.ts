@@ -3,7 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router'; // Importando o Router
+import { Router } from '@angular/router';
 
 interface Video {
   thumbnail: string;
@@ -11,15 +11,15 @@ interface Video {
   title: string;
   url: string;
   description: string;
-  id: string;  // Certifique-se de que o ID do vídeo esteja no seu modelo
-  views: number; // Adicionando views
-  uploadedAt: string; // Adicionando data de upload
+  id: string;
+  views: number;
+  uploadedAt: string;
 }
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Importando FormsModule para ngModel
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private http: HttpClient,
-    private router: Router // Injetando o Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +50,6 @@ export class DashboardComponent implements OnInit {
   }
 
   onVideoClick(id: string): void {
-    // Navegar para o componente video-detail com o ID do vídeo
     this.router.navigate(['/video-detail', id]);
   }
 

@@ -1,0 +1,92 @@
+.video-detail {
+  background-color: #141313; 
+  color: white;
+  margin: auto;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.logo {
+  max-width: 12%;
+}
+
+.video-detail h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #FFFFFF;
+}
+
+.video-thumbnail {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.video-detail p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.video-channel-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.video-detail p strong {
+  font-weight: bold;
+}
+
+.video-actions {
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #312F2F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#inscrever {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.like-button {
+  background-color: #312F2F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.like-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.like-button:hover {
+  background-color: #0056b3;
+}
