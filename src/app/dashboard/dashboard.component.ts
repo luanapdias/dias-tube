@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Para ngModel
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; // Importando o Router
 
 interface Video {
   thumbnail: string;
@@ -10,6 +11,9 @@ interface Video {
   title: string;
   url: string;
   description: string;
+  id: string;  // Certifique-se de que o ID do vídeo esteja no seu modelo
+  views: number; // Adicionando views
+  uploadedAt: string; // Adicionando data de upload
 }
 
 @Component({
@@ -20,41 +24,43 @@ interface Video {
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  logoutUrl = window.location.origin; // Armazena o URL base
-  videos: Video[] = []; // Inicializa como array vazio
-  filteredVideos: Video[] = []; // Vídeos filtrados
-  searchQuery: string = ''; // Query de pesquisa
+  logoutUrl = window.location.origin;
+  videos: Video[] = [];
+  filteredVideos: Video[] = [];
+  searchQuery: string = '';
 
-  constructor(public auth: AuthService, private http: HttpClient) {}
+  constructor(
+    public auth: AuthService,
+    private http: HttpClient,
+    private router: Router // Injetando o Router
+  ) {}
 
   ngOnInit(): void {
-    this.fetchVideos(); // Carregar vídeos ao inicializar o componente
+    this.fetchVideos();
   }
 
-  // Método para buscar os vídeos
   fetchVideos(): void {
     this.http.get<Video[]>('http://localhost:3000/videos').subscribe({
       next: (data) => {
-        this.videos = data; // Preenche os vídeos com a resposta
-        this.filteredVideos = data; // Inicializa os vídeos filtrados
+        this.videos = data;
+        this.filteredVideos = data;
       },
       error: (err) => console.error('Erro ao buscar vídeos:', err),
     });
   }
 
-  // Método para abrir o link do vídeo
-  openVideo(url: string): void {
-    window.open(url, '_blank'); // Abre o link em uma nova aba
+  onVideoClick(id: string): void {
+    // Navegar para o componente video-detail com o ID do vídeo
+    this.router.navigate(['/video-detail', id]);
   }
 
-  // Método para filtrar os vídeos com base na pesquisa
   filterVideos(): void {
     if (this.searchQuery.trim()) {
-      this.filteredVideos = this.videos.filter(video =>
+      this.filteredVideos = this.videos.filter((video) =>
         video.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     } else {
-      this.filteredVideos = this.videos; // Caso a busca esteja vazia, mostra todos os vídeos
+      this.filteredVideos = this.videos;
     }
   }
 }

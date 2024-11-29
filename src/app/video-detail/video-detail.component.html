@@ -1,0 +1,8 @@
+<div class="video-detail">
+  <h2>{{ video.title }}</h2>
+  <img [src]="video.thumbnail" alt="{{ video.title }}" class="video-thumbnail" />
+  <p>{{ video.description }}</p>
+  <p><strong>Canal:</strong> <img [src]="video.channel_thumbnail" alt="Canal" class="video-channel-thumbnail" /></p>
+  <p><strong>Views:</strong> {{ video.views }}</p>
+  <p><strong>Publicado em:</strong> {{ video.uploadedAt }}</p>
+</div>

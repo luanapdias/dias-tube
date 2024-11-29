@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
       authorizationParams: {
         redirect_uri: window.location.origin,
       },
-      skipRedirectCallback: false, 
+      skipRedirectCallback: false,
     }),
   ],
 };
