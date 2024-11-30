@@ -17,10 +17,10 @@
       class="video-channel-thumbnail"
     />
   </p>
-
-  <p><strong>Views:</strong> {{ video.views }}</p>
-  <p><strong>Publicado em:</strong> {{ video.uploadedAt }}</p>
-
+  <p class="informa"><strong>Views:</strong> {{ video.views }}</p>
+  <p class="informa"><strong>Publicado em:</strong> {{ video.uploadedAt }}</p>
+  <p>4,2 mil de inscritos</p>
+  <img class="search-icon" src="./assets/play.png" alt="play" />
   <div class="video-actions">
     <button id="inscrever">Inscrever-se</button>
     <button class="like-button">
@@ -28,7 +28,11 @@
       18 mil |
       <img class="icon" src="./assets/deslike.png" alt="deslike" />
     </button>
-    <button>Compartilhar</button>
+    <!-- Ajuste aqui para colocar o ícone dentro do botão -->
+    <button class="compartilhar-button">
+      <img class="icon" src="./assets/compartilhar.png" alt="compartilhar" />
+      Compartilhar
+    </button>
     <button>...</button>
   </div>
 </div>

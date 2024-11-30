@@ -1,13 +1,13 @@
 .video-detail {
-  background-color: #141313; 
-  color: white;
+  background-color: #141313;
+  color: #727272;
   margin: auto;
   text-align: center;
   border-radius: 8px;
 }
 
-.logo {
-  max-width: 12%;
+.informa {
+  color: #FFFFFF;
 }
 
 .video-detail h2 {
@@ -57,7 +57,7 @@ button {
   background-color: #312F2F;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -65,10 +65,15 @@ button {
 #inscrever {
   background-color: #FFFFFF;
   color: #000000;
+  border-radius: 20px;
+}
+
+#inscrever:hover {
+  background-color: #897BA6;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #897BA6;
 }
 
 .like-button {
@@ -79,14 +84,35 @@ button:hover {
   justify-content: center;
   gap: 10px;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .like-button img {
-  width: 20px;
+  width: 18px;
   height: 20px;
 }
 
 .like-button:hover {
-  background-color: #0056b3;
+  background-color: #897BA6;
+}
+
+/* Novo estilo para o botão de compartilhar */
+.compartilhar-button {
+  background-color: #312F2F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.compartilhar-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.compartilhar-button:hover {
+  background-color: #897BA6;
 }

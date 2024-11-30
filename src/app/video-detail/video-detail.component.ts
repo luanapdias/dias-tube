@@ -7,7 +7,7 @@ interface Video {
   thumbnail: string;
   channel_thumbnail: string;
   title: string;
-  url: string; 
+  url: string;
   description: string;
   id: string;
   views: number;
