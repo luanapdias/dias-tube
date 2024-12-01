@@ -49,10 +49,6 @@ body {
   cursor: pointer;
 }
 
-.logo {
-  max-width: 12%;
-}
-
 button {
   padding: 8px 20px;
   font-size: 16px;

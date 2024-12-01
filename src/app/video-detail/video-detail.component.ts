@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
+import { CommonModule } from '@angular/common';
 
 interface Video {
   thumbnail: string;
@@ -16,6 +17,8 @@ interface Video {
 
 @Component({
   selector: 'app-video-detail',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.css'],
 })

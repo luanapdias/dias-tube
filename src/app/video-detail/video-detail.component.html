@@ -1,38 +1,62 @@
 <div class="video-detail">
-  <img class="logo" src="./assets/minhaLogo.png" alt="Logo" />
-  <a [href]="video.url" target="_blank">
-    <img
-      [src]="video.thumbnail"
-      alt="{{ video.title }}"
-      class="video-thumbnail"
-      (click)="incrementViewCount()"
-    />
-  </a>
-  <h2>{{ video.title }}</h2>
-  <p>{{ video.description }}</p>
-  <p>
-    <img
-      [src]="video.channel_thumbnail"
-      alt="Canal"
-      class="video-channel-thumbnail"
-    />
-  </p>
-  <p class="informa"><strong>Views:</strong> {{ video.views }}</p>
-  <p class="informa"><strong>Publicado em:</strong> {{ video.uploadedAt }}</p>
-  <p>4,2 mil de inscritos</p>
-  <img class="search-icon" src="./assets/play.png" alt="play" />
-  <div class="video-actions">
-    <button id="inscrever">Inscrever-se</button>
-    <button class="like-button">
-      <img class="search-icon" src="./assets/like.png" alt="like" />
-      18 mil |
-      <img class="icon" src="./assets/deslike.png" alt="deslike" />
-    </button>
-    <!-- Ajuste aqui para colocar o ícone dentro do botão -->
-    <button class="compartilhar-button">
-      <img class="icon" src="./assets/compartilhar.png" alt="compartilhar" />
-      Compartilhar
-    </button>
-    <button>...</button>
+  <div class="search-container">
+    <img class="logo" src="./assets/minhaLogo.png" alt="Logo" />
+  </div>
+
+  <div class="video-player">
+    <a [href]="video.url" target="_blank">
+      <img
+        [src]="video.thumbnail"
+        alt="{{ video.title }}"
+        class="video-thumbnail"
+        (click)="incrementViewCount()"
+      />
+      <img class="play-icon" src="./assets/play.png" alt="play" />
+    </a>
+  </div>
+
+  <div class="video-info">
+    <div>
+      <h2>{{ video.title }}</h2>
+      <p>{{ video.description }}</p>
+
+      <div class="info-details">
+        <div class="details">
+          <img
+            [src]="video.channel_thumbnail"
+            alt="Canal"
+            class="video-channel-thumbnail"
+          />
+          <div>
+            <p><strong>Views:</strong> {{ video.views }}</p>
+            <p><strong>Publicado em:</strong> {{ video.uploadedAt | date:'dd/MM/yyyy' }}</p>
+            <p>4,2 mil de inscritos</p>
+          </div>
+        </div>
+
+        <div class="video-actions">
+          <button id="inscrever" class="no-break">Inscrever-se</button>
+
+          <div class="like-dislike">
+            <button class="like like-button">
+              <img class="icon" src="./assets/like.png" alt="like" />
+              18 mil
+            </button>
+            <span class="separator"></span>
+            <button class="like dislike-button">
+              <img class="icon" src="./assets/deslike.png" alt="deslike" />
+            </button>
+          </div>
+
+          <button class="share-button">
+            <img class="icon" src="./assets/compartilhar.png" alt="compartilhar" />
+            Compartilhar
+          </button>
+          
+          <!-- <button>...</button> -->
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
