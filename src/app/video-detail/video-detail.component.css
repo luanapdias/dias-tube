@@ -106,7 +106,9 @@
   font-size: 14px;
   color: #FFFFFF;
 }
-
+#inscritos {
+  color: #727272;
+}
 .video-actions {
   display: grid;
   column-gap: 10px;
