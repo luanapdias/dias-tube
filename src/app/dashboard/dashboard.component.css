@@ -6,6 +6,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.logo {
+  width: 20%;
+}
+
 .dashboard {
   background-color: #141313;
   min-height: 100vh;
